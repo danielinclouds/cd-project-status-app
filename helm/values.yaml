@@ -1,0 +1,11 @@
+
+
+image:
+  repository: docker.io/danielinclouds/go-status-code
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8080
