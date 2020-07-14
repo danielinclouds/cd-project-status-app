@@ -1,6 +1,8 @@
 
 rollout: true
 
+test_status_code: "200"
+
 image:
   repository: docker.io/danielinclouds/go-status-code
   pullPolicy: IfNotPresent

@@ -16,6 +16,6 @@ spec:
               containers:
               - name: curl
                 image: docker.io/danielinclouds/bash:1.0.0
-                args: ['/test.sh', 'http://status-app:8080/status/200']
+                args: ['/test.sh', 'http://{{ include "status-app.fullname" . }}:8080/status/{{ .Values.test_status_code }}']
               restartPolicy: Never
 {{ end }}
