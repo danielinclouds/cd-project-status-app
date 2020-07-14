@@ -1,0 +1,21 @@
+{{ if eq .Values.rollout true }}
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: smoke-test
+spec:
+  metrics:
+  - name: smoke-test
+    count: 1
+    provider:
+      job:
+        spec:
+          backoffLimit: 0
+          template:
+            spec:
+              containers:
+              - name: curl
+                image: docker.io/danielinclouds/bash:1.0.0
+                args: ['/test.sh', 'http://status-app:8080/status/200']
+              restartPolicy: Never
+{{ end }}
