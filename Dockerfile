@@ -20,7 +20,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 FROM alpine:latest 
 
 ARG PORT
+ARG APP_VERSION
 ENV APP_PORT=${PORT}
+ENV APP_VERSION=${APP_VERSION}
 
 RUN apk --no-cache add ca-certificates
 
